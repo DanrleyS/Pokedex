@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;
-    padding: 0;
+    padding: inherit;
     margin: 0;
 }
 
