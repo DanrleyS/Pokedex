@@ -47,7 +47,19 @@ loadMoreButton.addEventListener('click' , () => {
  
 
 
+function showPokemonDetails(pokemonId) {
+    pokeApi.getPokemonDetails(pokemonId).then(pokemon => {
+        const detailHtml = `
+            <h2>${pokemon.name}</h2>
+            <p>#${pokemon.number}</p>
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+            <button id="closeDetail">Fechar</button>
+        `;
+        detailSection.innerHTML = detailHtml;
+        detailSection.style.display = 'block';
 
-
-
-
+        document.getElementById('closeDetail').addEventListener('click', () => {
+            detailSection.style.display = 'none';
+        });
+    });
+}
